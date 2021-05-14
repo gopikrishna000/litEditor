@@ -1,9 +1,10 @@
 # main window of the app
-# manages the EditorSession
-from tkinter import Tk, Text, END
 
-from src.logic import EditorSession
+from src.utils import Observable
 
 
 class LitEditor:
-    editor_session: EditorSession = None
+    def __init__(self):
+        self.file_path_string = Observable()
+        self.markdown_string = Observable()
+        self.html_string = Observable()

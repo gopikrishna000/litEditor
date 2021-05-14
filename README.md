@@ -61,32 +61,28 @@ For long have existed vast markdown editors and tbc...
 7. changes are saved as the user is editing
 8. if the user were to switch to 📁, then continue from step 4.
 
-### 💻 Systems Overview
+### 💻 Logic Overview
 
 - #### 👶 Initializing the systems
-    - ```LitEditor``` is instantiated
-    - which in turn instantiates ```other UIs```
-    - ```📁 Page UI``` selects a file accordingly creates an ```EditorSession```
-    - that ```EditorSession``` will be managed by ```LitEditor```
+    - ```LitEditor``` is instantiated with observables
+        - ```FileLogic``` & ```HtmlLogic``` are instantiated passing their required ```Observables```
+        - ```other UIs``` are instantiated passing their required ```Observables```
 - #### 👨‍ Working of the systems
-    - ```Markdown Editor UI in ✍ & 🔥``` notifies the ```EditorSession``` of any edits
-    - ```EditorSession``` on receiving any edit notifications, delegates them to
-        - ```FileSession``` which saves changes to the file
-        - ```HtmlSession``` which converts the Markdown text to html
-    - ```Markdown Preview UI in 🔥 & 👀``` display the html generated from ```HtmlSession```
-
+    - ```LitEditor``` contains important data as Observables that are provided to other classes
+    - ```UI``` directly updates those observables
+    - ```Logic``` observes those updates and acts accordingly
 - #### 💀 Termination of the systems (Lifecycle)
     - ```LitEditor``` - till the program exits
-    - ```EditorSession``` - recreated for evey file selection in 📁
-        - ```FileSession``` - follows ```EditorSession```'s Lifecycle
-        - ```HtmlSession``` - follows ```EditorSession```'s Lifecycle
+        - ```FileLogic``` & ```HtmlLogic``` follows the lifecycle of ```LitEditor```
+    - ```UI``` have different lifecycles
 
 ### 🧩 State Management
 
 - #### Why ?
   Changes in state and effects of those changes are separated into different places for maintainability, and these are
   stream of changes.
-  (ex - editing text in ```✍ or 🔥``` must be reflected in ```🔥, 👀 through HtmlSession``` and ```FileSession```)
+  (ex - editing text in ```✍ or 🔥 - Markdown Editor``` must be reflected in ```🔥, 👀 - Markdown View```
+  and ```FileLogic```)
 
 - #### How ?
   We are going to follow a modified version of ```Observer Pattern ⚡```
