@@ -10,11 +10,11 @@ To Develop a Text Editor guided by the following Principles :
 1. Non-Native UX Patterns
 1. KISS (Keep it simple and stupid)
 
-#### 🌌 Abstract
+### 🌌 Abstract
 
 For long have existed vast text editors and tbc...
 
-#### 🍧 UI Spec
+### 🍧 UI Spec
 
 1. Project Window
     ```
@@ -45,16 +45,21 @@ For long have existed vast text editors and tbc...
    |____________________________________________________________________|
    ```
 
-#### Basic Features 😃
+### 😃 Basic Features
 
 1. Cut, Copy, Paste between```clipboard``` and the ```Editable Text Area```
 1. Delete all, Select All, Undo, Redo
 1. Keyboard shortcuts for the above two
 
-#### Ultimate Features 😎
+### 😎 Ultimate Features
 
 1. Auto save
 1. Text Styles
     1. headline1, headline2, headline3
     1. body, strong, italics, underline
-   
+
+### 🧱 Systems Overview
+
+1. ```src/logic/session_builder``` creates editor session
+2. editor_session accepts commands from ui like changing styles, editing text
+   1. editor_session delegates to file_session, styles_session and state_session appropriately
