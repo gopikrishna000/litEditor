@@ -1,0 +1,1 @@
+# editor window ui declaration
