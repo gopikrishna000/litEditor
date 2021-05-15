@@ -13,7 +13,7 @@ def lit_editor(master):
     file_path_string = Observable("")
     markdown_string = Observable("")
     html_string = Observable("")
-    selected_tab = Observable("fire_tab")
+    selected_tab = Observable("file_tab")
 
     # logic
     use_file_logic(file_path_string, markdown_string)
