@@ -1,7 +1,5 @@
 from tkinter import Frame, Label, Button, filedialog, StringVar
 
-from src.utils import Observable
-
 valid_file_types = (
     ("Github Markdown File", "*.(markdown|mdown|mkdn|md|mkd)"),
     ("Elements Markdown File", "*.(markdown|mdown|mdwn|md)"),
@@ -12,14 +10,13 @@ valid_file_types = (
 )
 
 
-def get_file_frame(master, file_path_string: Observable):
+def get_file_frame(master, file_path_var: StringVar):
     # ui declaration
-    path = StringVar()
 
     parent = Frame(master)
 
     heading_label = Label(parent, text='Currently Editing', font=('arial', 12))
-    path_label = Label(parent, textvariable=path)
+    path_label = Label(parent, textvariable=file_path_var)
 
     control_frame = Frame(parent)
 
@@ -35,14 +32,12 @@ def get_file_frame(master, file_path_string: Observable):
 
     def on_browse_btn():
         file_path = filedialog.askopenfilename(filetypes=valid_file_types)
-        path.set(file_path)
-        file_path_string.dispatch(file_path)
+        file_path.set(file_path)
 
     def on_create_btn():
         file_path = filedialog.asksaveasfilename(filetypes=valid_file_types)
         #   todo: verify file extension
-        path.set(file_path)
-        file_path_string.dispatch(file_path)
+        file_path.set(file_path)
 
     browse_btn.configure(command=on_browse_btn)
     create_btn.configure(command=on_create_btn)
