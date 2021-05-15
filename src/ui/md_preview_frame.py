@@ -10,7 +10,6 @@ def get_md_preview_frame(master, html_string: Observable):
 
     def on_html_change(html_text):
         md_prev_frame.set_html(html_text)
-        html_string.dispatch(html_text)
 
     html_string.observe(on_html_change)
     return md_prev_frame
