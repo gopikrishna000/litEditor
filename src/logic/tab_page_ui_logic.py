@@ -11,6 +11,6 @@ def use_tab_page_ui_logic(selected_tab: Observable, pages: list):
 
         selected_tab_index = tabs.index(tab)
 
-        pages[selected_tab_index].pack()
+        pages[selected_tab_index].pack(expand=True, fill='both')
 
     selected_tab.observe(on_tab_selected)

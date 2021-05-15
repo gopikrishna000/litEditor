@@ -1,5 +1,5 @@
 # main window of the app
-from tkinter import Tk, Frame
+from tkinter import Frame
 
 from src.logic import use_file_logic, use_html_logic
 from src.logic.tab_page_ui_logic import use_tab_page_ui_logic
@@ -8,19 +8,19 @@ from src.ui.fire_frame import get_fire_frame
 from src.utils import Observable
 
 
-def lit_editor():
+def lit_editor(master):
     # observables
     file_path_string = Observable("")
     markdown_string = Observable("")
     html_string = Observable("")
-    selected_tab = Observable("file_tab")
+    selected_tab = Observable("fire_tab")
 
     # logic
     use_file_logic(file_path_string, markdown_string)
     use_html_logic(markdown_string, html_string)
 
     # ui
-    root = Tk()
+    root = Frame(master)
 
     side_nav = get_side_nav(root, selected_tab)
     page_frame = Frame(root)

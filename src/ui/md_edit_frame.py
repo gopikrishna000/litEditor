@@ -5,8 +5,7 @@ from src.utils import Observable
 
 
 def get_md_edit_frame(master, markdown_string: Observable):
-
-    md_edit_frame = Text(master, font=font.Font(family='arial', size=14))
+    md_edit_frame = Text(master, width='1', height='1', font=font.Font(family='arial', size=14))
 
     def on_md_change(event=None):
         md_edit_frame.edit_modified(0)
