@@ -1,4 +1,5 @@
 # entry point to the program
-from src import LitEditor
+from src import lit_editor
 
-LitEditor()
+editor = lit_editor()
+editor.mainloop()

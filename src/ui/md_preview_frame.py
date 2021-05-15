@@ -1,7 +1,8 @@
-from src.utils import Lifecycle, Observable
+from tkinter import Frame
+
+from src.utils import Observable
 
 
-class MdPreviewFrame(Lifecycle):
-    def __init__(self, html_string: Observable):
-        super().__init__()
-        # todo: observe changes from html_string
+def get_md_preview_frame(master, html_string: Observable):
+    # todo: observe changes from html_string
+    return Frame(master)

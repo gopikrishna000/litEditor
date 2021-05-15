@@ -1,1 +1,1 @@
-from src.lit_editor import LitEditor
+from src.lit_editor import lit_editor

@@ -1,6 +1,7 @@
-from src.utils import Lifecycle, Observable
+from tkinter import Frame
+
+from src.utils import Observable
 
 
-class FileFrame(Lifecycle):
-    def __init__(self, file_path_string: Observable):
-        super().__init__()
+def get_file_frame(master, file_path_string: Observable):
+    return Frame()

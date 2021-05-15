@@ -1,18 +1,31 @@
 # main window of the app
-from src.logic import FileLogic, HtmlLogic
+from tkinter import Tk
+
+from src.logic import use_file_logic, use_html_logic
+from src.ui import get_md_edit_frame, get_md_preview_frame, get_file_frame
 from src.utils import Observable
 
 
-class LitEditor:
-    def __init__(self):
-        # observables
-        self.file_path_string = Observable("")
-        self.markdown_string = Observable("")
-        self.html_string = Observable("")
-        self.selected_tab = Observable("file_tab")
+def lit_editor():
+    # observables
+    file_path_string = Observable("")
+    markdown_string = Observable("")
+    html_string = Observable("")
+    selected_tab = Observable("file_tab")
 
-        # logic
-        self.file_logic = FileLogic(self.file_path_string, self.markdown_string)
-        self.html_logic = HtmlLogic(self.markdown_string, self.html_string)
+    # logic
+    use_file_logic(file_path_string, markdown_string)
+    use_html_logic(markdown_string, html_string)
 
-        # todo: ui
+    # declare ui
+    root = Tk()
+
+    file_frame = get_file_frame(root, file_path_string)
+    edit_frame = get_md_edit_frame(root, markdown_string)
+    preview_frame = get_md_preview_frame(root, html_string)
+
+    # todo: layout ui
+    # directly packing for now
+    edit_frame.pack()
+
+    return root

@@ -1,1 +1,4 @@
 Pillow==8.2.0
+
+markdown2~=2.4.0
+tkhtmlview~=0.1.0.post1
