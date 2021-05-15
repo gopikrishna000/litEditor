@@ -1,1 +1,1 @@
-from src.utils.observable import Observable, Lifecycle
+from src.utils.observable import Observable
