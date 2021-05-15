@@ -1,14 +1,11 @@
 # main window of the app
-from tkinter import Tk, Text, Frame
+from tkinter import Tk, Frame
 
 from src.logic import use_file_logic, use_html_logic
 from src.logic.tab_page_ui_logic import use_tab_page_ui_logic
 from src.ui import get_md_edit_frame, get_md_preview_frame, get_file_frame
 from src.ui.fire_frame import get_fire_frame
 from src.utils import Observable
-
-
-# constants
 
 
 def lit_editor():
