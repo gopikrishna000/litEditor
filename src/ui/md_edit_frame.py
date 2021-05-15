@@ -12,5 +12,5 @@ def get_md_edit_frame(master, markdown_string: Observable):
         if val or val == '':
             markdown_string.dispatch(val)
 
-    md_edit_frame.bind("<<Modified>>",on_md_change)
+    md_edit_frame.bind("<<Modified>>", on_md_change)
     return md_edit_frame
