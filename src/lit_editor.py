@@ -6,9 +6,10 @@ from src.utils import Observable
 class LitEditor:
     def __init__(self):
         # observables
-        self.file_path_string = Observable()
-        self.markdown_string = Observable()
-        self.html_string = Observable()
+        self.file_path_string = Observable("")
+        self.markdown_string = Observable("")
+        self.html_string = Observable("")
+        self.selected_tab = Observable("file_tab")
 
         # logic
         self.file_logic = FileLogic(self.file_path_string, self.markdown_string)

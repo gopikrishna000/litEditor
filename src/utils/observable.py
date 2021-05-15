@@ -22,13 +22,19 @@ class Lifecycle:
 
 
 class Observable:
-    def __init__(self):
-        self.observers = set()
+    def __init__(self, initial_value):
+        self.observers = list()
+        self.value = initial_value
 
     def observe(self, lifecycle, observer):
-        self.observers.add((lifecycle, observer))
+        if lifecycle.active:
+            observer(self.value)
+            self.observers.append((lifecycle, observer))
 
     def dispatch(self, value):
+        self.value = value
+
         self.observers = [tup for tup in self.observers if tup[0].active]  # remove inactive observers
+
         for tup in self.observers:  # notify active observers
-            tup[1](value)
+            tup[1](self.value)
