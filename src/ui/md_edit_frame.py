@@ -6,9 +6,10 @@ from src.utils import Observable
 def get_md_edit_frame(master, markdown_string: Observable):
 
     md_edit_frame = Text(master, font=font.Font(family='arial', size=14))
+    md_edit_frame.edit_modified(0)
 
     def on_md_change(event=None):
-        val = md_edit_frame.get()
+        val = md_edit_frame.get("1.0")
         if val or val == '':
             markdown_string.dispatch(val)
 
