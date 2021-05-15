@@ -37,7 +37,7 @@ For long have existed vast markdown editors and tbc...
     1. ⚙ - Settings
 
 
-2. Project Tab Page - ```# TODO: @surendar-283```
+2. File Tab Page - ```# TODO: @surendar-283```
 
 ### 😃 Basic Features
 
@@ -63,18 +63,15 @@ For long have existed vast markdown editors and tbc...
 
 ### 💻 Logic Overview
 
-- #### 👶 Initializing the systems
-    - ```LitEditor``` is instantiated with observables
-        - ```FileLogic``` & ```HtmlLogic``` are instantiated passing their required ```Observables```
-        - ```other UIs``` are instantiated passing their required ```Observables```
-- #### 👨‍ Working of the systems
-    - ```LitEditor``` contains important data as Observables that are provided to other classes
-    - ```UI``` directly updates those observables
+- #### 👶 Initializing
+    - ```lit_editor``` instantiates observables
+        - ```use_file_logic``` & ```use_html_logic``` are called
+        - ```other UIs``` are built passing their required ```Observables```
+        - ```other UIs``` are placed according to layout
+- #### 👨‍ Working
+    - the observables passed from ```lit_editor``` help in communication
+    - ```UI``` updates those observables
     - ```Logic``` observes those updates and acts accordingly
-- #### 💀 Termination of the systems (Lifecycle)
-    - ```LitEditor``` - till the program exits
-        - ```FileLogic``` & ```HtmlLogic``` follows the lifecycle of ```LitEditor```
-    - ```UI``` have different lifecycles
 
 ### 🧩 State Management
 
@@ -82,23 +79,18 @@ For long have existed vast markdown editors and tbc...
   Changes in state and effects of those changes are separated into different places for maintainability, and these are
   stream of changes.
   (ex - editing text in ```✍ or 🔥 - Markdown Editor``` must be reflected in ```🔥, 👀 - Markdown View```
-  and ```FileLogic```)
+  and ```use_file_logic```). We need a mechanism to effectively communicate and handle these changes.
 
 - #### How ?
-  We are going to follow a modified version of ```Observer Pattern ⚡```
-    - #### Why modified ?
-      In our particular use case for the ```Observer Pattern ⚡```, the observables will be listened from classes with
-      well-defined lifecycle and only unlisten after that lifecycle terminates. if we followed the
-      regular ```Observer Pattern ⚡```, we would have to listen and unlisten each observable manually. There is a better
-      way.
+  We are going to follow a simplified the ```Observer Pattern ⚡```
+    - #### Why simplified ?
+      In our particular use case for the ```Observer Pattern ⚡```, the observables will be listened throughout the
+      lifecycle of the program. if we followed the regular ```Observer Pattern ⚡```, we would have un-utilized
+      functionality in observable. There is a simpler way.
 
-    - #### How modified ?
-        - Every class that wants to listen to an Observable extends ```Lifecycle``` that maintains whether it is active
-          as a boolean
-        - ```Observable``` provides observe method that takes a ```Lifecycle``` and a function as argument
-        - When the value of the ```Observable``` changes, iterate all the observers, remove observers which are not
-          active and notify only the active observers
+    - #### How simplified ?
+        - The ```Observable``` doesn't provide a way to stop receiving the changes
+        - ```Observable``` provides ```observe``` method that takes a function (i.e ```Observer```) as argument
+        - When the value of the ```Observable``` changes (by calling ```Observable.dispatch```), every observer is
+          notified of the change
 
-    - #### More on this Particular Pattern
-        - This pattern is a simplified version
-          of [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) in Android.   
