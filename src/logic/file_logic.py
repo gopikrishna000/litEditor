@@ -8,6 +8,10 @@ def use_file_logic(file_path_string, markdown_string):
         nonlocal file
         if file:
             file.close()
+
+        if path == '':
+            markdown_string.dispatch('')  # clear markdown_string
+            return
         file = open(path, 'w')
         content = file.read()
         markdown_string.dispatch(content)

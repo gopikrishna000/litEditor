@@ -10,7 +10,7 @@ def get_fire_frame(master, markdown_string: Observable, html_string: Observable)
     preview_frame = get_md_preview_frame(parent, html_string)
 
     # todo: pack it properly
-    edit_frame.pack()
-    preview_frame.pack()
+    # edit_frame.pack()
+    # preview_frame.pack()
 
     return parent

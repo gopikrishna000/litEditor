@@ -9,11 +9,11 @@ def get_side_nav(master, selected_tab):
     buttons = dict()
     last_selected_tab = selected_tab.value
 
-    for index, key in enumerate(tabs):
+    for index, key in list(enumerate(tabs)):
         button = Button(tab_frame, height=2, width=10, text=key, bg='#92C569')
         button.grid(row=index, column=0, sticky=W)
-        button.configure(command=lambda: selected_tab.dispatch(key))
         buttons.setdefault(key, button)
+        button.configure(command=lambda k=key: selected_tab.dispatch(k))
 
     def on_tab_selected(_key):
         nonlocal last_selected_tab
