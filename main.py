@@ -9,8 +9,7 @@ ctypes.windll.shcore.SetProcessDpiAwareness(1)
 window = Tk()
 
 window.title('litEditor')
-window.minsize('720', '480')
-# window.tk.call('tk', 'scaling', 2.0)
+window.minsize('1280', '720')
 
 editor = lit_editor(window)
 editor.pack(expand=True, fill='both')
