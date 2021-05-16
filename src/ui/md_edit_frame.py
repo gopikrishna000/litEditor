@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import Text, font
 
-
 def get_md_edit_frame(master, markdown_var: StringVar):
     md_edit_frame = Text(master, width='1', height='1', font=font.Font(family='arial', size=14))
 
