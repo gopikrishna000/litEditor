@@ -10,7 +10,7 @@ def get_side_nav(master, selected_tab: StringVar):
     last_selected_tab = selected_tab.get()
 
     for index, key in list(enumerate(tabs)):
-        button = Button(tab_frame, height=2, width=10, text=key, bg='#92C569',relief=FLAT)
+        button = Button(tab_frame, height=2, width=10, text=key, bg='#92C569', relief=FLAT)
         button.grid(row=index, column=0, sticky=W)
         buttons.setdefault(key, button)
         button.configure(command=lambda k=key: selected_tab.set(k))
@@ -25,11 +25,9 @@ def get_side_nav(master, selected_tab: StringVar):
         _button = buttons.get(_key)
         # update selected look for this button
         _button.configure(relief=SUNKEN)
-        print(_key)
         last_selected_tab = _key
 
-        last_selected_tab = key
-
+    on_tab_selected()
     selected_tab.trace_add('write', on_tab_selected)
 
     return tab_frame

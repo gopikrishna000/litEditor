@@ -32,5 +32,7 @@ def use_file_logic(file_path_var: StringVar, markdown_var: StringVar):
             file.write(mdn_text)
             file.truncate()
 
+    on_file_selected()
     file_path_var.trace_add('write', on_file_selected)
+    on_markdown_change()
     markdown_var.trace_add('write', on_markdown_change)

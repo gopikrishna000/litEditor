@@ -14,4 +14,5 @@ def use_tab_page_ui_logic(selected_tab_var: StringVar, pages: list):
 
         pages[selected_tab_index].pack(expand=True, fill='both')
 
+    on_tab_selected()
     selected_tab_var.trace_add('write', on_tab_selected)

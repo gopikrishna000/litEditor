@@ -10,7 +10,9 @@ def use_html_logic(markdown_var: StringVar, html_var: StringVar):
 
     def on_markdown_change(*_):
         markdown_text = markdown_var.get()
+        print(markdown_text)
         html_text = md.convert(markdown_text)
         html_var.set(html_text)
 
+    on_markdown_change()
     markdown_var.trace_add('write', on_markdown_change)
