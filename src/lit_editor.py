@@ -21,7 +21,7 @@ def lit_editor(master):
     # ui
     root = Frame(master)
 
-    side_nav = get_side_nav(root, selected_tab)
+    side_nav = get_side_nav(root, selected_tab, file_path_var)
     page_frame = Frame(root)
 
     side_nav.pack(expand=False, fill='both', side='left', anchor='nw')

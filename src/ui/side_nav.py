@@ -1,11 +1,11 @@
-from tkinter import StringVar, Frame, FLAT, W
+from tkinter import StringVar, Frame, FLAT, W, DISABLED, NORMAL
 
 from src.logic import tabs
 from src.styles.theme import color
 from src.ui.tab_button import TabButton
 
 
-def get_side_nav(master, selected_tab: StringVar):
+def get_side_nav(master, selected_tab: StringVar, file_path_var):
     tab_frame = Frame(master, bg=color['surface'])
 
     buttons = dict()
@@ -39,5 +39,18 @@ def get_side_nav(master, selected_tab: StringVar):
 
     on_tab_selected()
     selected_tab.trace_add('write', on_tab_selected)
+
+    # disable tabs if no file selected
+    def on_file_selected(*_):
+        if file_path_var.get() == '':
+            for _key in buttons.keys():
+                if _key != 'file_tab':
+                    buttons[_key].configure(state=DISABLED)
+        else:
+            for _key in buttons.keys():
+                buttons[_key].configure(state=NORMAL)
+
+    on_file_selected()
+    file_path_var.trace_add('write', on_file_selected)
 
     return tab_frame
