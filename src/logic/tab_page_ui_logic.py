@@ -1,6 +1,6 @@
 from tkinter import StringVar
 
-tabs = ['file_tab.png', 'md_edit_tab.png', 'fire_tab.png', 'md_preview_tab.png']
+tabs = ['file_tab', 'md_edit_tab', 'fire_tab', 'md_preview_tab']
 
 
 def use_tab_page_ui_logic(selected_tab_var: StringVar, pages: list):
