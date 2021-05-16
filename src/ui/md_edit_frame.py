@@ -12,9 +12,9 @@ def get_md_edit_frame(master, markdown_var: StringVar):
                                  height='1',
                                  bd=0,
                                  bg=color['shell'],
-                                 fg=color['on-shell'],
+                                 fg=color['high'],
                                  font=font.Font(family='arial', size=14),
                                  padx=16, pady=16,
-                                 insertbackground=color['on-shell']
+                                 insertbackground=color['medium']
                                  )
     return md_edit_text

@@ -10,7 +10,7 @@ def get_md_preview_frame(master, html_var: StringVar):
 
     def on_html_change(*_):
         # todo: find if there is any simpler way to change font color
-        html_text = '<div style=\"color:' + color['on-shell'] + ';\">' + html_var.get() + '</div>'
+        html_text = '<div style=\"color:' + color['high'] + ';\">' + html_var.get() + '</div>'
         md_prev_frame.set_html(html_text)
 
     on_html_change()

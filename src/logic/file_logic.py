@@ -2,6 +2,8 @@
 from tkinter import StringVar
 from typing import TextIO
 
+from src.utils.path import open_file
+
 
 def use_file_logic(file_path_var: StringVar, markdown_var: StringVar):
     file = None
@@ -18,7 +20,7 @@ def use_file_logic(file_path_var: StringVar, markdown_var: StringVar):
             markdown_var.set('')  # clear markdown_string
             return
 
-        file = open(path, 'w+')
+        file = open_file(path)
         content = file.read()
 
         markdown_var.set(content)
@@ -27,7 +29,6 @@ def use_file_logic(file_path_var: StringVar, markdown_var: StringVar):
     def on_markdown_change(*_):
         if file:
             mdn_text = markdown_var.get()
-
             file.seek(0)
             file.write(mdn_text)
             file.truncate()
