@@ -32,12 +32,12 @@ def get_file_frame(master, file_path_var: StringVar):
 
     def on_browse_btn():
         file_path = filedialog.askopenfilename(filetypes=valid_file_types)
-        file_path.set(file_path)
+        file_path_var.set(file_path)
 
     def on_create_btn():
         file_path = filedialog.asksaveasfilename(filetypes=valid_file_types)
         #   todo: verify file extension
-        file_path.set(file_path)
+        file_path_var.set(file_path)
 
     browse_btn.configure(command=on_browse_btn)
     create_btn.configure(command=on_create_btn)
