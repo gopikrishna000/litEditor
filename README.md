@@ -26,7 +26,15 @@ For long have existed vast markdown editors and tbc...
        Markdown’s simplicity and flexibility helps you make fewer mistakes, and errors are much easier to find.
    - ### Kill Your CMS(Content management system):
        Markdown can be written anywhere there’s a blinking cursor and shared in any format. It’s just plain text. You don’t need any WYSIWYG controls, because the Markdown characters actually look like the formatted results you’ll get.
-
+       
+### 🖥 HTML Viewer
+  - A hypertext markup language (HTML) viewer is a tool that allows website designers to view and edit their work in real time. 
+  - The HTML viewer displays code on one side of the screen and the webpage-in-progress on the other.
+  - Also known as an HTML previewer or HTML editor, these tools are intended to reduce or eliminate broken or inefficient code.
+  - HTML viewers can insert prewritten, frequently-used sections of code, or highlight certain lines of code.
+  - One of the most useful features of an HTML viewer is the ability to split the screen between the webpage code and a preview of how the code will look when it is  uploaded to a server.
+  
+ 
 ### 🍧 UI Spec
 
 1. Tab Layout
