@@ -1,7 +1,7 @@
 from tkinter import Frame, Button, Label
 
 from src.styles.theme import color
-from src.utils.convert import decode_lit_cache
+from src.utils.convert import decode_lit_cache, encode_lit_cache
 
 
 def get_recent_files_frame(master, file_path_var, files_var, bg):
@@ -37,7 +37,12 @@ def get_recent_files_frame(master, file_path_var, files_var, bg):
                                        activebackground=color['warn-dark'])
                 remove_button.pack(expand=False, fill='both', side='right')
 
-                remove_button.configure(command=lambda p=path: files_var.set(files_var.get().replace(p + '\n', '')))
+                def on_remove(p=path):
+                    _files = decode_lit_cache(files_var.get())
+                    _files.remove(p)
+                    files_var.set(encode_lit_cache(_files))
+
+                remove_button.configure(command=on_remove)
                 select_button.configure(command=lambda p=path: file_path_var.set(p))
             else:
                 select_button.configure(bg=color['accent'])

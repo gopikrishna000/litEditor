@@ -1,8 +1,8 @@
-# 🔥 litEditor
+# litEditor
 
 Simple Markdown Editor made with Python Tkinter
 
-### 🚀 Aim
+### Aim
 
 To Develop a Markdown Editor guided by the following Principles :
 
@@ -10,7 +10,7 @@ To Develop a Markdown Editor guided by the following Principles :
 1. Non-Native UX Patterns
 1. KISS (Keep it simple and stupid)
 
-### 🌌 Abstract
+### Abstract
 
 Almost every text editor presents the user with vast number of styling choices and fancy features. It lets user to lose
 balance between productivity and decent styling. Markdown language mitigates the problem of decent styling, but most of
@@ -20,7 +20,7 @@ functionality, so the user focuses only on creating content. The user is present
 quicker to switch between files. it also avoids native menu bar in favour of tabs so that the user is presented with
 minimum number of options.
 
-### 👨‍💻 Markdown Language
+### Markdown Language
 
 - ### What is Markdown?
   Markdown is a way to style text on the web. You control the display of the document; formatting words as bold or
@@ -28,16 +28,16 @@ minimum number of options.
   just regular text with a few non-alphabetic characters thrown in, like ```#``` or ```*```.
 
 - ### Why Markdown?
-    - ### Easy On The Eyes:
+    - #### Easy On The Eyes:
       The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible.
-    - ### Fewer Errors:
+    - #### Fewer Errors:
       Markdown’s simplicity and flexibility helps you make fewer mistakes, and errors are much easier to find.
-    - ### Kill Your CMS(Content management system):
+    - #### Kill Your CMS(Content management system):
       Markdown can be written anywhere there’s a blinking cursor and shared in any format. It’s just plain text. You
       don’t need any WYSIWYG controls, because the Markdown characters actually look like the formatted results you’ll
       get.
 
-### 🍧 UI Spec
+### UI Spec
 
 1. Tab Layout
    ```
@@ -58,21 +58,21 @@ minimum number of options.
     1. 🔥 - Edit Markdown and Markdown Preview side by side
     1. 👀 - Markdown Preview
 
-### 😃 Basic Features
+### Basic Features
 
 1. Cut, Copy, Paste between```clipboard``` and the ```Editable Text Area```
-1. Delete all, Select All, Undo, Redo
+1. Undo, Redo
 1. Keyboard shortcuts for the above two
 1. Preview Markdown
 
-### 😎 Ultimate Features
+### Additional Features
 
 1. Auto save
 2. Recent Files
 3. Edit and Preview side by side
 4. Default dark theme
 
-### 🌊 Typical User Flow
+### Typical User Flow
 
 1. on opening litEditor, the user is presented with a Window with tabs (📁, ✍, 🔥, 👀)
 2. ✍,🔥 & 👀 will be disabled
@@ -83,7 +83,7 @@ minimum number of options.
 7. changes are saved as the user is editing
 8. if the user were to switch to 📁, then continue from step 4.
 
-### 🧩 State Management
+### State Management
 
 - #### Why ?
   Changes in state and effects of those changes are separated into different places for maintainability, and these are
@@ -95,16 +95,16 @@ minimum number of options.
   We are going to follow the ```Observer Pattern ⚡```. Tkinter provides ```StringVar``` that can be used to implement
   this pattern.
 
-### 💻 Logic Overview
+### Architecture Overview
 
-- #### 👶 Initializing
+- #### Initializing
     - ```main.py``` is the entry point of the application
     - ```lit_editor``` function declares the initial state of the application
     - ```lit_editor``` instantiates ```StringVar```'s
         - ```logic``` functions are called which reacts to the changes of the ```StringVar```'s
         - ```other UIs``` are built passing their required ```StringVar```'s
         - ```other UIs``` are placed according to layout
-- #### 👨‍ Working
+- #### Working
     - the ```StringVar```'s passed from ```lit_editor``` help in communication
     - ```UI``` updates those observables
     - ```UI``` & ```Logic``` observes those updates and acts accordingly
