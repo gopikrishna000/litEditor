@@ -9,6 +9,8 @@ valid_file_types = (
     ("Text File", "*.txt")
 )
 
+recent_file = open('src/rcsave.txt', 'r+')
+
 
 def get_file_frame(master, file_path_var: StringVar):
     # ui declaration
@@ -51,9 +53,18 @@ def get_file_frame(master, file_path_var: StringVar):
 
     def update_recent_drop(x):
         for i, ele in enumerate(recent_drop.get(0, END)):
-            if ele == x:
+            if ele == x + "\n":
                 recent_drop.delete(i)
-        recent_drop.insert(0, x)
+        recent_drop.insert(0, x + "\n")
+        if (x + "\n") not in recent_file.readlines():
+            recent_file.write(x + "\n")
+
+    def retain_recent_drop():
+        path = recent_file.readlines()
+        for i, ele in enumerate(path):
+            recent_drop.insert(i, ele)
+
+    retain_recent_drop()
 
     browse_btn.configure(command=on_browse_btn)
     create_btn.configure(command=on_create_btn)
