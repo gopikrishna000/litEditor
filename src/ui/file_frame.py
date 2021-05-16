@@ -1,4 +1,4 @@
-from tkinter import Frame, Label, Button, filedialog, StringVar, Listbox
+from tkinter import Frame, Label, Button, filedialog, StringVar, Listbox, END
 
 valid_file_types = (
     ("Github Markdown File", "*.(markdown|mdown|mkdn|md|mkd)"),
@@ -41,13 +41,19 @@ def get_file_frame(master, file_path_var: StringVar):
     def on_browse_btn():
         file_path = filedialog.askopenfilename(filetypes=valid_file_types)
         file_path_var.set(file_path)
-        recent_drop.insert(0, file_path_var.get())
+        update_recent_drop(file_path_var.get())
 
     def on_create_btn():
         file_path = filedialog.asksaveasfilename(filetypes=valid_file_types)
         #   todo: verify file extension
         file_path_var.set(file_path)
-        recent_drop.insert(0, file_path_var.get())
+        update_recent_drop(file_path_var.get())
+
+    def update_recent_drop(x):
+        for i, ele in enumerate(recent_drop.get(0, END)):
+            if ele == x:
+                recent_drop.delete(i)
+        recent_drop.insert(0, x)
 
     browse_btn.configure(command=on_browse_btn)
     create_btn.configure(command=on_create_btn)
