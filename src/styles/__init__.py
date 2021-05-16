@@ -1,1 +1,1 @@
-import src.styles.theme
+from src.styles.theme import color

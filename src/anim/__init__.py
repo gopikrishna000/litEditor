@@ -1,1 +1,1 @@
-import src.anim.anim_controller
+from src.anim.anim_controller import AnimController
