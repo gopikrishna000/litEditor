@@ -18,7 +18,7 @@ def use_file_logic(file_path_var: StringVar, markdown_var: StringVar):
             markdown_var.set('')  # clear markdown_string
             return
 
-        file = open(path, 'r+')
+        file = open(path, 'w+')
         content = file.read()
 
         markdown_var.set(content)
