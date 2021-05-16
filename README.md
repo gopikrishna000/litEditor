@@ -35,10 +35,7 @@ For long have existed vast markdown editors and tbc...
     1. 🔥 - Edit Markdown and Markdown Preview side by side
     1. 👀 - Markdown Preview
     1. ⚙ - Settings
-
-
-2. File Tab Page - ```# TODO: @surendar-283```
-
+    
 ### 😃 Basic Features
 
 1. Cut, Copy, Paste between```clipboard``` and the ```Editable Text Area```
@@ -82,15 +79,5 @@ For long have existed vast markdown editors and tbc...
   and ```use_file_logic```). We need a mechanism to effectively communicate and handle these changes.
 
 - #### How ?
-  We are going to follow a simplified the ```Observer Pattern ⚡```
-    - #### Why simplified ?
-      In our particular use case for the ```Observer Pattern ⚡```, the observables will be listened throughout the
-      lifecycle of the program. if we followed the regular ```Observer Pattern ⚡```, we would have un-utilized
-      functionality in observable. There is a simpler way.
-
-    - #### How simplified ?
-        - The ```Observable``` doesn't provide a way to stop receiving the changes
-        - ```Observable``` provides ```observe``` method that takes a function (i.e ```Observer```) as argument
-        - When the value of the ```Observable``` changes (by calling ```Observable.dispatch```), every observer is
-          notified of the change
-
+  We are going to follow the ```Observer Pattern ⚡```. Tkinter provides Variables for that. ```StringVar``` will be used
+  mostly. 
