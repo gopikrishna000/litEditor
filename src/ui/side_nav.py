@@ -1,16 +1,16 @@
-from tkinter import *
+from tkinter import StringVar, Frame, FLAT, W, SUNKEN
 
 from src.logic import tabs
+from src.ui.tab_button import TabButton
 
 
 def get_side_nav(master, selected_tab: StringVar):
     tab_frame = Frame(master, bg='#92C569')
-
     buttons = dict()
     last_selected_tab = selected_tab.get()
 
     for index, key in list(enumerate(tabs)):
-        button = Button(tab_frame, height=2, width=10, text=key, bg='#92C569', relief=FLAT)
+        button = TabButton(tab_frame, image=key)
         button.grid(row=index, column=0, sticky=W)
         buttons.setdefault(key, button)
         button.configure(command=lambda k=key: selected_tab.set(k))
