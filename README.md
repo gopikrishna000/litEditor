@@ -14,6 +14,19 @@ To Develop a Markdown Editor guided by the following Principles :
 
 For long have existed vast markdown editors and tbc...
 
+### 👨‍💻 Markdown Language
+
+- ### What is Markdown?
+  Markdown is a way to style text on the web. You control the display of the document; formatting words as bold or italic, adding images, and creating lists are  just a few of the things we can do with Markdown.Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like ```#``` or ```*```.
+  
+- ### Why Markdown?
+   - ### Easy On The Eyes:
+      The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible.
+   - ### Fewer Errors:
+       Markdown’s simplicity and flexibility helps you make fewer mistakes, and errors are much easier to find.
+   - ### Kill Your CMS(Content management system):
+       Markdown can be written anywhere there’s a blinking cursor and shared in any format. It’s just plain text. You don’t need any WYSIWYG controls, because the Markdown characters actually look like the formatted results you’ll get.
+
 ### 🍧 UI Spec
 
 1. Tab Layout
@@ -81,15 +94,4 @@ For long have existed vast markdown editors and tbc...
 - #### How ?
   We are going to follow the ```Observer Pattern ⚡```. Tkinter provides Variables for that. ```StringVar``` will be used
   mostly. 
-### 👨‍💻 Markdown Language
 
-- ### What is Markdown?
-  Markdown is a way to style text on the web. You control the display of the document; formatting words as bold or italic, adding images, and creating lists are  just a few of the things we can do with Markdown.Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like ```#``` or ```*```.
-  
-- ### Why Markdown?
-   - ### Easy On The Eyes:
-      The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible.
-   - ### Fewer Errors:
-       Markdown’s simplicity and flexibility helps you make fewer mistakes, and errors are much easier to find.
-   - ### Kill Your CMS(Content management system):
-       Markdown can be written anywhere there’s a blinking cursor and shared in any format. It’s just plain text. You don’t need any WYSIWYG controls, because the Markdown characters actually look like the formatted results you’ll get.
