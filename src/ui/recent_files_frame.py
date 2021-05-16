@@ -1,4 +1,4 @@
-from tkinter import Frame, Button
+from tkinter import Frame, Button, Label
 
 from src.styles.theme import color
 from src.utils.convert import decode_lit_cache
@@ -12,6 +12,13 @@ def get_recent_files_frame(master, file_path_var, files_var, bg):
 
         for slave in parent.pack_slaves():
             slave.destroy()
+
+        if len(files) == 0:
+            label = Label(parent, text='Create or Open File to Edit', font=('arial', 14), fg=color['low'], bg=bg)
+            label.pack(expand=True, fill='both')
+        elif file_path_var.get() == '':
+            label = Label(parent, text='Select file to Edit', font=('arial', 12), pady=16, fg=color['low'], bg=bg)
+            label.pack(expand=True, fill='both')
 
         for index, path in enumerate(files):
             frame = Frame(parent)

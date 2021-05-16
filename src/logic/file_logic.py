@@ -1,6 +1,5 @@
 # logic for updating the file, importing it's content
 from tkinter import StringVar
-from typing import TextIO
 
 from src.utils.path import open_file
 

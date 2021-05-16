@@ -8,6 +8,7 @@ max_cache = 4
 
 def use_recent_files_logic(files_var: StringVar):
     file = open_file(file_from_project_root('.litcache'))
+    files_var.set(file.read())
 
     def add_to_recent(path: str):
         files = decode_lit_cache(files_var.get())
@@ -26,6 +27,7 @@ def use_recent_files_logic(files_var: StringVar):
         if file:
             file.seek(0)
             file.write(files_var.get())
+            file.truncate()
 
     files_var.trace_add('write', on_files_var_change)
 
