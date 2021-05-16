@@ -10,7 +10,6 @@ window = Tk()
 
 window.title('litEditor')
 window.minsize('1280', '720')
-
 editor = lit_editor(window)
 editor.pack(expand=True, fill='both')
 

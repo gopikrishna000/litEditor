@@ -2,8 +2,9 @@ color = {
     'shell': '#282d3f',
     'shell-dark': '#212433',
     'surface': '#30364c',
-    'surface-dark': '#212433',
+    'surface-dark': '#24293b',
     'accent': '#8651c9',
-    'on-surface': '#57606e',
     'on-shell': '#FFFFFE',
+    'low': '#57606e',
+    'high': '#FFFFFF',
 }

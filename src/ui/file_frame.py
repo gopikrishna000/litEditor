@@ -1,4 +1,6 @@
-from tkinter import Frame, Label, Button, filedialog, StringVar, Listbox, END
+from tkinter import Frame, Label, Button, filedialog, StringVar, Listbox, END, FLAT
+
+from src.styles.theme import color
 
 valid_file_types = (
     ("Github Markdown File", "*.(markdown|mdown|mkdn|md|mkd)"),
@@ -13,23 +15,25 @@ recent_file = open('src/rcsave.txt', 'r+')
 
 
 def get_file_frame(master, file_path_var: StringVar):
-    # ui declaration
+    # colors
+    bg = color['surface-dark']
+    fg = color['high']
 
-    parent = Frame(master)
+    parent = Frame(master, bg=bg)
 
-    heading_label = Label(parent, text='Currently Editing', font=('arial', 12))
-    path_label = Label(parent, textvariable=file_path_var)
+    heading_label = Label(parent, text='Currently Editing', fg=fg, bg=bg, font=('arial', 12))
+    path_label = Label(parent, textvariable=file_path_var, fg=fg, bg=bg)
 
-    control_frame = Frame(parent)
+    control_frame = Frame(parent, bg=bg)
 
-    browse_btn = Button(control_frame, text='Browse')
-    create_btn = Button(control_frame, text='Create')
+    browse_btn = Button(control_frame, text='Browse', bg=color['accent'], fg=fg, relief=FLAT)
+    create_btn = Button(control_frame, text='Create', bg=color['accent'], fg=fg, relief=FLAT)
 
     heading_label.pack(fill='x', pady=(4, 4))
     path_label.pack(fill='x', pady=(4, 4))
 
-    browse_btn.pack(expand=True, fill='x', side='left', padx=4, pady=4)
-    create_btn.pack(expand=True, fill='x', side='left', padx=4, pady=4)
+    browse_btn.pack(expand=True, fill='both', side='left', padx=4, pady=4)
+    create_btn.pack(expand=True, fill='both', side='left', padx=4, pady=4)
     control_frame.pack()
 
     test_frame = Frame(parent)

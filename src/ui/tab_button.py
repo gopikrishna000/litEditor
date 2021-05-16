@@ -20,7 +20,7 @@ class TabButton(Button):
         icon = Image.open(abs_file_path).resize((32, 32), ).convert('RGBA')
 
         # create icon variants
-        self.default_icon = generate_colored_icon(icon, color['on-surface'])
+        self.default_icon = generate_colored_icon(icon, color['low'])
         self.selected_icon = generate_colored_icon(icon, color['accent'])
 
         # styling
