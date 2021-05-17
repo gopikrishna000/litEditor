@@ -15,6 +15,9 @@ def get_md_edit_frame(master, markdown_var: StringVar):
                                  fg=color['high'],
                                  font=font.Font(family='arial', size=14),
                                  padx=16, pady=16,
-                                 insertbackground=color['medium']
+                                 insertbackground=color['medium'],
+                                 undo=True,
+                                 autoseparators=True,
+                                 maxundo=-1,
                                  )
     return md_edit_text
