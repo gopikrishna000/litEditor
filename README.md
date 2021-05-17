@@ -40,19 +40,19 @@ minimum number of options.
 ### 🍧 UI Spec
 
 1. Tab Layout
-   ```
-   _________________________________________________________________
-   | 📁  |                                                         |
-   |-----|                                                          |
-   | ✍  |                                                         |
-   |-----|                    Selected Tab's Page                   |
-   | 🔥  |                                                          |
-   |-----|                                                          |
-   |  👀 |                                                         | 
-   |-----|                                                          |
-   |     |                                                          |
-   |_____|__________________________________________________________|
-   ```
+      <table>
+        <tbody>
+            <tr>
+                <td>📁</td>
+                <td rowspan="5">Selected Tab's Page</td>
+            </tr>
+            <tr><td>✍</td></tr>
+            <tr><td>🔥</td></tr>
+            <tr><td>👀</td></tr>
+            <tr><td height="50"></td></tr>
+        </tbody>
+    </table>
+   
     1. 📁 - Select Folder
     1. ✍ - Edit Markdown
     1. 🔥 - Edit Markdown and Markdown Preview side by side
@@ -128,3 +128,39 @@ minimum number of options.
     - The core image library is designed for fast access to data stored in a few basic pixel formats. It should provide
       a solid foundation for a general image processing tool.
     - we use this module for displaying icon
+
+### Screenshots of the Application
+
+> First Experience
+
+![new_user](./screenshots/new_user.png)
+
+> Returning User Experience
+
+![returning_user](./screenshots/returning_user.png)
+
+> Editing Markdown
+
+![edit_only](./screenshots/edit_only.png)
+
+> Previewing Markdown
+
+![preview](./screenshots/preview_only.png)
+
+> Editing and Previewing side by side
+
+![side_by_side](./screenshots/side_by_side.png)
+
+### How to run ?
+
+#### Prerequisites
+
+- ```>= python 3.7```
+- dependencies in ```requirements.txt``` file
+- ```git```
+
+#### Steps
+
+- ```git clone https://github.com/Pushpavel/litEditor.git```
+- install required dependencies
+- ```python main.py```
